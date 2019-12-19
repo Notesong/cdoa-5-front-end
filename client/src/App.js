@@ -4,10 +4,9 @@ import { Route, Link } from 'react-router-dom';
 import './App.css';
 import Quiz from './components/Quiz';
 import Scoreboard from './components/Scoreboard';
-import login from './components/Login'
 import register from './components/register';
 import celebCard from './components/CelebCard';
-// import Login from "./components/Login";
+import Login from "./components/Login";
 
 
 function App() {
@@ -26,7 +25,7 @@ function App() {
       <main>
         <Route path='/quiz' component={Quiz} />
         <Route path='/scoreboard' component={Scoreboard} />
-        <Route path='/login' component={login} />
+        <Route path='/login' component={Login} />
         <Route path='/register' component={register} />
       </main>
     </div>
