@@ -23,7 +23,7 @@ const Image = styled.div`
 `;
 
 const Button = styled.button`
-    background-color: #158FA4;
+    // background color in App.css
     border: none;
     color: white;
     padding: 15px 15px;
