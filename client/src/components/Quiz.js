@@ -1,5 +1,8 @@
 import React from "react";
 import CelebCard from './CelebCard';
+import styled from 'styled-components';
+
+const ScoreTimerSection = styled
 
 function Quiz(props) {
 
@@ -7,14 +10,14 @@ function Quiz(props) {
 
   return (
     <div className="quiz-wrapper">
-      <section>
+      <ScoreTimerSection>
         <div>
           <p>Score: (score variable)</p>
         </div>
         <div>
           <p>(timer)</p>
         </div>
-      </section>
+      </ScoreTimerSection>
       <CelebCard />
     </div>
   );
