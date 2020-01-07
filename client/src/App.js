@@ -15,7 +15,7 @@ import Login from "./components/Login";
        <header className="App-header">
         <h1>Celebrity Dead or Alive</h1>
         <nav>
-          <Link to='/quiz'>Quiz</Link>
+          <Link to='/Quiz'>Quiz</Link>
          {/* only displayed if logged in */}
           <Link to='/scoreboard'>Scoreboard</Link>
           <Link to='/login'>Login</Link>
@@ -23,7 +23,7 @@ import Login from "./components/Login";
         </nav>
        </header>
       <Switch>
-        <Route path='/quiz' component={Quiz} />
+        <Route path='/Quiz' component={Quiz} />
         <Route path='/scoreboard' component={Scoreboard} />
         <Route path='/login' component={Login} />
         <Route path='/register' component={Register} />

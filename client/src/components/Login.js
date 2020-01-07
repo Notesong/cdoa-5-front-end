@@ -14,18 +14,24 @@ const Login = () => {
   return(
     <div className="loginData">
       <form>
+        <label htmlFor="email">
+          Email 
         <input
         placeholder="email"
         value={loginInfo.email}
         name="email"
         onChange={handleChange}
         />
+        </label>
+        <label htmlFor='password'>
+          Password 
            <input
         placeholder="password"
         value={loginInfo.password}
         name="password"
         onChange={handleChange}
         />
+        </label>
        <div className= "buttons">
          <Button  type='submit' buttonText={'SUBMIT'} pathName={''} />
          <Button type='submit' buttonText={'SIGNUP'} pathName={'signup'}/>

@@ -27,7 +27,7 @@ const [ wrongAliveG, setWrongAliveG] = useState(false)
 useEffect(() => {
   axios
   .get(
-    // `our API`
+    // API
   )
   .then((e) => {
     e.status ? setData(e.data): console.log("thumbs up")
@@ -43,6 +43,11 @@ useEffect(() => {
   const timer = setTimeout(() => setTime(true), 30000)
   return () => clearTimeout(timer)
 }, [])
+
+// useEffect(() => {
+//   const timerExtra = setTimeout(() => setTime(true), 15000)
+//   return () => clearTimeout(timerExtra)
+// }, [])
 
 //  now we check and see if the user guessed dead here
 const isDeadCeleb = (dead) => {
@@ -78,10 +83,10 @@ return (
 //  whole game (will need to set up data points i.e (death and alive from API)
   <div className='game-quiz'>
     <Route
-    path='/play'
+    path='/Quiz'
     render={() =>
     time ? (
-      <Redirect to='/end'/>
+      <Redirect to='/Scoreboard'/>
     ) : (
       <div className='p-content'>
         <div className='score-status'>

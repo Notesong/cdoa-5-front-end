@@ -8,7 +8,7 @@ const Scoreboard = () => {
   return (
     <div className='userscores-screen'>
       <header className='userscores-content'>
-        <h1>HALL OF FAME</h1>
+        <h1>ALLLLL THE SCORES</h1>
         <h2>{isNameHere}</h2>
         <div className='grid-titles'>
           <h2>RANK</h2>
@@ -34,7 +34,7 @@ const Scoreboard = () => {
           <div />
         </div>
         <h4>Play again to beat your own high score!</h4>
-        <Button buttonText={'PLAY AGAIN'} pathName={'play'} />
+        <Button buttonText={'PLAY AGAIN'} pathName={'Quiz'} />
       </header>
     </div>
   )
