@@ -18,7 +18,7 @@ const Register = () => {
         <div className='register-user'>
             <form>
                 <label htmlFor='username'>
-                    User Name
+                    Email
                     <input
                     placeholder='email'
                     value={registerUser.email}

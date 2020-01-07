@@ -10,11 +10,13 @@ import Login from "./components/Login";
 
 
  export default function App() {
+  
   return (
     <div className="App">
        <header className="App-header">
         <h1>Celebrity Dead or Alive</h1>
         <nav>
+ 
           <Link to='/Quiz'>Quiz</Link>
          {/* only displayed if logged in */}
           <Link to='/scoreboard'>Scoreboard</Link>

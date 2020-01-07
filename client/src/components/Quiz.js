@@ -10,10 +10,10 @@ const Quiz = () => {
     return Math.floor(Math.random() * 200 +1)
     // randomizes questions
   }
- // celeb data
-  const [data, setData] = useState({})
-  // collects Id for correct answers 
-  const [id, setId] = useState(Math.floor(Math.random() * 200 +1))
+// celeb data
+const [data, setData] = useState({})
+// collects Id for correct answers 
+const [id, setId] = useState(Math.floor(Math.random() * 200 +1))
 // sets score
 const [score, setScore] = useState(0)
 const [userAnswer, setUserAnswer] = useState(0)

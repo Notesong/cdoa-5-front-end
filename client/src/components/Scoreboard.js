@@ -1,8 +1,9 @@
-import React from 'react'
-import Button from './Button'
+import React from 'react';
+import Button from './Button';
+
 
 const Scoreboard = () => {
-  let isNameHere = window.localStorage.getItem('SignUpCred')
+  let isNameHere = window.localStorage.getItem('registerUser')
   let games = JSON.parse(window.localStorage.getItem(isNameHere)) || []
 
   return (
@@ -33,6 +34,11 @@ const Scoreboard = () => {
           </div>
           <div />
         </div>
+        <a className="twitter-share-button"
+        href={`https://twitter.com/intent/tweet?text=I%20scored${games.score}`}
+        data-size="large">
+        <img src="https://img.icons8.com/nolan/64/twitter.png" alt="twitter icon"></img>
+        Tweet Your High Score here!</a>
         <h4>Play again to beat your own high score!</h4>
         <Button buttonText={'PLAY AGAIN'} pathName={'Quiz'} />
       </header>
