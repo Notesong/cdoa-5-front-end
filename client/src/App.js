@@ -4,7 +4,7 @@ import { Route, Switch, Link } from 'react-router-dom';
 import './App.css';
 import Quiz from './components/Quiz';
 import Scoreboard from './components/Scoreboard';
-import register from './components/register';
+import Register from './components/register';
 // import CelebCard from './components/CelebCard';
 import Login from "./components/Login";
 
@@ -26,7 +26,7 @@ import Login from "./components/Login";
         <Route path='/quiz' component={Quiz} />
         <Route path='/scoreboard' component={Scoreboard} />
         <Route path='/login' component={Login} />
-        <Route path='/register' component={register} />
+        <Route path='/register' component={Register} />
       </Switch>
     </div>
   );
