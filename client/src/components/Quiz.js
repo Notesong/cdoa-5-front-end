@@ -27,7 +27,8 @@ const [ wrongAliveG, setWrongAliveG] = useState(false)
 useEffect(() => {
   axios
   .get(
-    // API
+   `https://cdoa5-backend.herokuapp.com/
+   `
   )
   .then((e) => {
     e.status ? setData(e.data): console.log("thumbs up")
