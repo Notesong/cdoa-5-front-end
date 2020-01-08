@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from 'button';
+import Button from './Button';
 import UserName from './UserName';
 
 const QuizOver = () =>{
@@ -47,6 +47,11 @@ const QuizOver = () =>{
                     </div>    
                 )}
             </div>
+            <a className="twitter-share-button"
+        href={`https://twitter.com/intent/tweet?text=I%20scored%20${score}`}
+        data-size="large">
+        <img src="https://img.icons8.com/nolan/64/twitter.png" alt="twitter icon"></img>
+        Tweet Your High Score here!</a>
             <Button buttonText = {'Play Again?'} pathName={'Quiz'} />
         </div>
     )

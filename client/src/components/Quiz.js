@@ -87,7 +87,7 @@ return (
     path='/Quiz'
     render={() =>
     time ? (
-      <Redirect to='/Scoreboard'/>
+      <Redirect to='/QuizOver'/>
     ) : (
       <div className='p-content'>
         <div className='score-status'>

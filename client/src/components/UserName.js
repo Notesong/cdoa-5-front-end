@@ -55,6 +55,12 @@ const UserName = (props) => {
                     name='firstname'
                     onChange={handleChange}
                     />
+                    <input 
+                    placeholder='Your email'
+                    value='email'
+                    name='email'
+                    onChange={handleChange}
+                    />
                 </label>
                 <button type={'submit'}>Submit</button>
             </form>
