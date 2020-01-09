@@ -22,7 +22,8 @@ const Register = () => {
                     <input
                     placeholder='username'
                     value={registerUser.username}
-                    name='name'
+                    name='username'
+                    type='name'
                     onChange={handleChange}
                     />
                 </label>
@@ -32,6 +33,7 @@ const Register = () => {
                     placeholder='email'
                     value={registerUser.email}
                     name='email'
+                    type='email'
                     onChange={handleChange}
                     />
                 </label>

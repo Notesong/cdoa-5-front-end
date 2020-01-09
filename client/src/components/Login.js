@@ -3,7 +3,7 @@ import Button from './Button';
 
 
 const Login = () => {
-  const [loginInfo, setLoginInfo] = useState({ username: "", password: ""})
+  const [loginInfo, setLoginInfo] = useState({ email: "", password: ""})
 
   const handleChange = (e) => {
     setLoginInfo({ ...loginInfo, [e.target.name]: e.target.value})
@@ -14,13 +14,12 @@ const Login = () => {
   return(
     <div className="loginData">
       <form>
-        <label htmlFor="username">
-          Username
+        <label htmlFor="email">
+          Email
         <input
-        placeholder="username"
-        type="username"
-        value={loginInfo.username}
-        name="name"
+        placeholder="email"
+        value={loginInfo.email}
+        name="email"
         onChange={handleChange}
         />
         </label>
