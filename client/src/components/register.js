@@ -17,7 +17,16 @@ const Register = () => {
     return (
         <div className='register-user'>
             <form>
-                <label htmlFor='username'>
+            <label htmlFor='Username'>
+                   Username
+                    <input
+                    placeholder='username'
+                    value={registerUser.username}
+                    name='name'
+                    onChange={handleChange}
+                    />
+                </label>
+                <label htmlFor='Email'>
                     Email
                     <input
                     placeholder='email'
