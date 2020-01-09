@@ -32,7 +32,7 @@ const QuizOver = () =>{
         <div className='Quiz_over'>
             <div className="end">
                 {isNameHere ? (
-                    <h2>Way to Go{`${isNameHere}`}</h2>
+                    <h2>Way to Go {`${isNameHere}`}</h2>
                 ) :(
                     <h2>Way to Go!</h2>
                 )}
@@ -48,7 +48,7 @@ const QuizOver = () =>{
                 )}
             </div>
             <a className="twitter-share-button"
-        href={`https://twitter.com/intent/tweet?text=I%20scored%20${score}`}
+        href={`https://twitter.com/intent/tweet?text=I%20scored%20${score}%20on%20CDoA`}
         data-size="large">
         <img src="https://img.icons8.com/nolan/64/twitter.png" alt="twitter icon"></img>
         Tweet Your High Score here!</a>

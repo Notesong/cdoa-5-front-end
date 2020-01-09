@@ -15,7 +15,7 @@ const UserName = (props) => {
         try {
             const id = localStorage.getItem('id') || '';
             if(id) {
-                await Axios.post(`${BASE_URL}/api/score`, {
+                await Axios.post(`${BASE_URL}/api/register`, {
                     player_id: parse(id),
                     score: props.score
                 })
@@ -55,12 +55,12 @@ const UserName = (props) => {
                     name='firstname'
                     onChange={handleChange}
                     />
-                    <input 
+                    {/* <input 
                     placeholder='Your email'
                     value='email'
                     name='email'
                     onChange={handleChange}
-                    />
+                    /> */}
                 </label>
                 <button type={'submit'}>Submit</button>
             </form>

@@ -3,7 +3,7 @@ import Button from './Button';
 
 
 const Login = () => {
-  const [loginInfo, setLoginInfo] = useState({ email: '', password: ''})
+  const [loginInfo, setLoginInfo] = useState({ email: "", password: ""})
 
   const handleChange = (e) => {
     setLoginInfo({ ...loginInfo, [e.target.name]: e.target.value})
@@ -18,6 +18,7 @@ const Login = () => {
           Email 
         <input
         placeholder="email"
+        type="email"
         value={loginInfo.email}
         name="email"
         onChange={handleChange}
@@ -27,6 +28,7 @@ const Login = () => {
           Password 
            <input
         placeholder="password"
+        type="password"
         value={loginInfo.password}
         name="password"
         onChange={handleChange}
@@ -34,7 +36,7 @@ const Login = () => {
         </label>
        <div className= "buttons">
          <Button  type='submit' buttonText={'SUBMIT'} pathName={''} />
-         <Button type='submit' buttonText={'SIGNUP'} pathName={'signup'}/>
+         <Button type='submit' buttonText={'SIGNUP'} pathName={'register'}/>
          </div> 
       </form>
     </div>
