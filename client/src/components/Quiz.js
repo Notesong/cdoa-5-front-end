@@ -27,7 +27,7 @@ const [ wrongAliveG, setWrongAliveG] = useState(false)
 useEffect(() => {
   axios
   .get(
-   `https://cdoa5-backend.herokuapp.com/
+   `https://cdoa5-backend.herokuapp.com/api/celebs/
    `
   )
   .then((e) => {

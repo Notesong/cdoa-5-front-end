@@ -3,7 +3,7 @@ import Button from './Button';
 
 
 const Login = () => {
-  const [loginInfo, setLoginInfo] = useState({ email: "", password: ""})
+  const [loginInfo, setLoginInfo] = useState({ username: "", password: ""})
 
   const handleChange = (e) => {
     setLoginInfo({ ...loginInfo, [e.target.name]: e.target.value})
@@ -18,7 +18,7 @@ const Login = () => {
           Email
         <input
         placeholder="email"
-        value={loginInfo.email}
+        value={loginInfo.username}
         name="email"
         onChange={handleChange}
         />
