@@ -234,6 +234,12 @@ hr {
   margin: 2rem 0;
 }
 
+.signup_share {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
 /* Buttons */
 
 input[type="submit"],
