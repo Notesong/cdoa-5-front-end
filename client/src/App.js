@@ -10,6 +10,7 @@ import Login from "./components/Login";
 import QuizStart from './components/QuizStart';
 import Nav from './components/Nav';
 import QuizOver from './components/QuizOver';
+import Scoreboard from './components/Scoreboard';
 
 export const BASE_URL = `https://cdoa5-backend.herokuapp.com/`;
 
@@ -25,6 +26,7 @@ export const BASE_URL = `https://cdoa5-backend.herokuapp.com/`;
       
       <Switch>
         <Route exact path='/' component={QuizStart}/>
+        <Route path='/Scoreboard' component={Scoreboard} />
         <Route path='/Quiz' component={Quiz} />
         <Route path='/QuizOver' component={QuizOver} />
         <Route path='/login' component={Login} />
