@@ -1,22 +1,25 @@
 
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import './App.css';
-import Quiz from './components/Quiz';
-// import Scoreboard from './components/Scoreboard';
-import Register from './components/register';
-// import CelebCard from './components/CelebCard';
-import Login from "./components/Login";
-import QuizStart from './components/QuizStart';
-import Nav from './components/Nav';
-import QuizOver from './components/QuizOver';
-import Scoreboard from './components/Scoreboard';
-import BurgerIcon from "./components/BurgerIcon";
-import Menu from "./components/Menu";
 import Popup from "reactjs-popup";
+// general components
+import Nav from './components/Nav';
+import Menu from "./components/Menu";
+import BurgerIcon from "./components/BurgerIcon";
 import AboutUs from './components/AboutUs';
 import Footer from './components/Footer';
+import Attributions from './components/Attributions';
+// quiz components
+import QuizStart from './components/QuizStart';
+import Quiz from './components/Quiz';
+import QuizOver from './components/QuizOver';
+import Scoreboard from './components/Scoreboard';
+// account components
+import Register from './components/register';
+import Login from "./components/Login";
 
+// styles
+import './App.css';
 const styles = {
   fontFamily: "sans-serif",
   textAlign: "center",
@@ -58,6 +61,7 @@ export const BASE_URL = `https://cdoa5-backend.herokuapp.com/`;
           <Route path='/login' component={Login} />
           <Route path='/register' component={Register} />
           <Route path='/AboutUs' component={AboutUs} />
+          <Route path='/Attributions' component={Attributions} />
         </Switch>        
       </div>
       <Footer />

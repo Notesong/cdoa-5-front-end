@@ -362,6 +362,29 @@ input[type=email], input[type=name], input[type=password] {
   background-image: url("./images/ipq5o936.bmp");
 }
 
+/* Footer */
+
+.Footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(54, 54, 54);
+  text-align: center;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Footer h5 {
+  color: rgb(209, 209, 209);
+}
+
+.Footer a:hover {
+  color: rgb(156, 156, 156);
+}
+
 /* Buttons */
 /* From: https://html5up.net/alpha */
 

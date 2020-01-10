@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 const Footer = () => { 
   
   return (
-    <div className="AboutUs">
+    <div className="Footer">
         <footer>
-            <h5>&copy;2020 | <Link to='/AboutUs'>About Us</Link> | Attribution</h5>
+            <h5>&copy;2020 | <Link to='/AboutUs'>About Us</Link> | <Link to='/Attributions'>Attributions</Link></h5>
         </footer>
     </div>
   )
