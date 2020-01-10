@@ -23,7 +23,8 @@ const QuizStart = () => {
             <header>
                 <Image />
                 <h3>Guess which of these Celebs are Dead or Alive!</h3>
-                <h3>You have 30 seconds{isNameHere === "" ? null : `, {isNameHere}`}.</h3>
+                <h3>You have 30 seconds.</h3>
+                {isNameHere === "" ? null : <h3> Let's Begin {isNameHere}!</h3>}
             </header>
             <div className="begin_button">
                 <Button buttonText={'Press Here to Begin!'} pathName={'Quiz'} />

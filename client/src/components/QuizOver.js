@@ -51,7 +51,7 @@ const QuizOver = () =>{
                 <h3><a className="twitter-share-button"
                     href={`https://twitter.com/intent/tweet?text=I%20scored%20${score}%20on%20CDoA`}
                     data-size="large">
-                <i class="fab fa-twitter-square"></i> Tweet Your High Score!</a></h3>
+                <i className="fab fa-twitter-square"></i> Tweet Your High Score!</a></h3>
             </div>
 
         </div>
