@@ -31,7 +31,8 @@ const Scoreboard = () => {
             ))}
           </div>
           <div />
-        </div>        <h4>Play again to beat your own high score!</h4>
+        </div>        
+        <h4>Play again to beat your own high score!</h4>
         <Button buttonText={'PLAY AGAIN'} pathName={'Quiz'} />
       </header>
     </div>

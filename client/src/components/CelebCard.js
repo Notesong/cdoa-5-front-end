@@ -1,7 +1,6 @@
 import React from "react";
 
 const CelebCard = ({ currentCeleb }) => {
-  console.log(currentCeleb)
   return (
     <div className='celeb-card'>
       <img src={currentCeleb.imageUrl} alt={currentCeleb.name} />

@@ -42,12 +42,12 @@ const QuizOver = () =>{
                 <Button buttonText = {'Play Again?'} pathName={'Quiz'} />
             </div>
             <div className="signup_share">
-                {isNameHere ? null : (
+            {/* {isNameHere ? null : (
                     <div>
                         <h3>Sign up to save your score and brag to all your friends:</h3>
                         <UserName score={score}/>
                     </div>    
-                )}
+                )} */}
                 <h3><a className="twitter-share-button"
                     href={`https://twitter.com/intent/tweet?text=I%20scored%20${score}%20on%20CDoA`}
                     data-size="large">
