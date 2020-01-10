@@ -4,9 +4,9 @@ import UserName from './UserName';
 
 const QuizOver = () =>{
     const correctGuesses = localStorage.getItem('CorrectGuesses');
-    const guess = localStorage.getItem("TotalGuesses");
+    const guesses = localStorage.getItem("TotalGuesses");
 
-    let score = Math.floor(correctGuesses *(10 * (correctGuesses / guess)));
+    let score = Math.floor(correctGuesses *(10 * (correctGuesses / guesses)));
 
     if (isNaN(score)) {
         score = 0;
@@ -32,27 +32,28 @@ const QuizOver = () =>{
         <div className='Quiz_over'>
             <div className="end">
                 {isNameHere ? (
-                    <h2>Way to Go {`${isNameHere}`}</h2>
+                    <h2>Time's up.<br />Way to Go {`${isNameHere}`}</h2>
                 ) :(
-                    <h2>Way to Go!</h2>
+                    <h2>Time's up.<br />Way to Go!</h2>
                 )}
-                <h3> The Quiz is Over</h3>
                 <h4>Correct Guesses: {correctGuesses}</h4>
-                <h4>Total Guesses: {guess}</h4>
-                <h2>Score: {isNaN(score) ? 0 : score}</h2>
+                <h4>Total Guesses: {guesses}</h4>
+                <h3>Score: {isNaN(score) ? 0 : score}</h3>
+                <Button buttonText = {'Play Again?'} pathName={'Quiz'} />
+            </div>
+            <div className="signup_share">
                 {isNameHere ? null : (
                     <div>
-                        <h2>Enter Your Name to save your score and brag to all of your friends:</h2>
+                        <h3>Sign up to save your score and brag to all your friends:</h3>
                         <UserName score={score}/>
                     </div>    
                 )}
+                <h3><a className="twitter-share-button"
+                    href={`https://twitter.com/intent/tweet?text=I%20scored%20${score}%20on%20CDoA`}
+                    data-size="large">
+                <i class="fab fa-twitter-square"></i> Tweet Your High Score!</a></h3>
             </div>
-            <a className="twitter-share-button"
-        href={`https://twitter.com/intent/tweet?text=I%20scored%20${score}%20on%20CDoA`}
-        data-size="large">
-        <img src="https://img.icons8.com/nolan/64/twitter.png" alt="twitter icon"></img>
-        Tweet Your High Score here!</a>
-            <Button buttonText = {'Play Again?'} pathName={'Quiz'} />
+
         </div>
     )
 }

@@ -1,18 +1,32 @@
 import React from 'react';
+import styled from 'styled-components';
 import Button from './Button';
+import logo from '../images/heartbeat.png'
+
+const Image = styled.div`
+    background-image: url(${logo});
+    background-repeat: no-repeat;
+	background-size: contain;
+    background-position: center; 
+    height: 200px;
+    margin: 1rem 0;
+    @media only screen and (max-width: 600px) {
+        height: 200px;
+    }
+`;
 
 const QuizStart = () => {
     let isNameHere = window.localStorage.getItem("registerUser") || ""
 
     return (
-        <div className = 'Quiz_Start'>
+        <div className='Quiz_Start'>
             <header>
-                {isNameHere === "" ? null : <h2> Lets Begin {isNameHere}!</h2>}
-                <h2>You have 30 seconds to guess which of these Celebs are Dead or Alive!</h2>
+                <Image />
+                <h3>Guess which of these Celebs are Dead or Alive!</h3>
+                <h3>You have 30 seconds{isNameHere === "" ? null : `, {isNameHere}`}.</h3>
             </header>
-            <div>
+            <div className="begin_button">
                 <Button buttonText={'Press Here to Begin!'} pathName={'Quiz'} />
-                {isNameHere === "" ? <Button buttonText={'Login'} pathName={'Login'} /> : null}
             </div>
         </div>
     )
