@@ -245,6 +245,39 @@ hr {
   justify-content: space-evenly;
 }
 
+/* Scoreboard */
+
+.scoreboard {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 2rem;
+}
+
+.scoreboard .board {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.scoreboard header {
+  padding: 1rem;
+}
+
+.rank, .score, .date {
+  padding: 2rem;
+}
+
+.rank, .score, .playagain {
+  text-align: center;
+}
+
+.playagain {
+  margin-top: 5rem;
+}
+
+.playagain button {
+  margin-top: 1rem;
+}
+
 /* Buttons */
 
 input[type="submit"],
