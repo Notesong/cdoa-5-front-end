@@ -212,6 +212,10 @@ hr {
   text-align: center;
 }
 
+.celeb-card img {
+  height: 250px;
+}
+
 /* Quiz Over */
 
 .Quiz_over {
@@ -226,7 +230,7 @@ hr {
 }
 
 .end {
-  width: 70%;
+  width: 50%;
   text-align: center;
 }
 
@@ -237,6 +241,7 @@ hr {
 .signup_share {
   display: flex;
   flex-direction: column;
+  text-align: center;
   justify-content: space-evenly;
 }
 
