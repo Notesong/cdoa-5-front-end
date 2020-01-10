@@ -14,6 +14,8 @@ import Scoreboard from './components/Scoreboard';
 import BurgerIcon from "./components/BurgerIcon";
 import Menu from "./components/Menu";
 import Popup from "reactjs-popup";
+import AboutUs from './components/AboutUs';
+import Footer from './components/Footer';
 
 const styles = {
   fontFamily: "sans-serif",
@@ -55,9 +57,10 @@ export const BASE_URL = `https://cdoa5-backend.herokuapp.com/`;
           <Route path='/QuizOver' component={QuizOver} />
           <Route path='/login' component={Login} />
           <Route path='/register' component={Register} />
+          <Route path='/AboutUs' component={AboutUs} />
         </Switch>        
       </div>
-
+      <Footer />
     </div>
   );
 }

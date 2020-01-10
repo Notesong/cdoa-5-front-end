@@ -326,6 +326,42 @@ input[type=email], input[type=name], input[type=password] {
   margin: 1rem;
 }
 
+/* About Us */
+
+.AboutUs .everyone {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: center;
+}
+
+.AboutUs .dom, .AboutUs .brian, .AboutUs .lee {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.AboutUs .individuals {
+  display: flex;
+  flex-direction: column;
+}
+
+.AboutUs .dom {
+  background-image: url("./images/547ky8wk.bmp");
+}
+
+.AboutUs .brian {
+  background-image: url("./images/secfbe1b.bmp");
+}
+
+.AboutUs .lee {
+  background-image: url("./images/ipq5o936.bmp");
+}
+
 /* Buttons */
 /* From: https://html5up.net/alpha */
 
