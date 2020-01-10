@@ -74,6 +74,10 @@ input, select, textarea {
 
 /* Basic */
 
+body {
+  margin-bottom: 3rem;
+}
+
 .App {
   margin: 0 !important;
 }
