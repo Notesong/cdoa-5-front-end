@@ -16,38 +16,44 @@ const Register = () => {
 
     return (
         <div className='register-user'>
+            <h2>Signup</h2>
             <form>
-            <label htmlFor='Username'>
+                <label htmlFor='Username'>
                    Username
                     <input
-                    placeholder='username'
+                    placeholder='Enter a username'
                     value={registerUser.username}
                     name='username'
                     type='name'
                     onChange={handleChange}
+                    maxLength="20"
                     />
                 </label>
                 <label htmlFor='Email'>
                     Email
                     <input
-                    placeholder='email'
+                    placeholder='Enter your email'
                     value={registerUser.email}
                     name='email'
                     type='email'
                     onChange={handleChange}
+                    maxLength="20"
                     />
                 </label>
                 <label htmlFor='password'>
                     Password
                 <input
-                type='password'
-                placeholder='password'
-                value={registerUser.password}
-                name='password'
-                onChange={handleChange}
+                    type='password'
+                    placeholder='Enter a password'
+                    value={registerUser.password}
+                    name='password'
+                    onChange={handleChange}
+                    maxLength="20"
                 />
                 </label>
-                <Button type='submit' buttonText={'Submit'} pathName={''}/>
+                <div className="buttons">
+                    <Button type='submit' buttonText={'Submit'} pathName={''}/>
+                </div>
             </form>
         </div>
     )

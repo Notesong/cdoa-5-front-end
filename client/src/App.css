@@ -278,6 +278,38 @@ hr {
   margin-top: 1rem;
 }
 
+/* Login and Signup*/
+
+.loginData, .register-user {
+  max-width: 300px;
+  margin: 2rem auto;
+}
+
+.loginData h2, .register-user h2 {
+    text-align: center;
+}
+
+label {
+  font-size: 1.25em;
+  line-height: 2em;
+  letter-spacing: -0.025em;
+}
+
+input[type=email], input[type=name], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.buttons {
+  text-align: center;
+}
+
+.buttons button {
+  margin: 1rem;
+}
+
 /* Buttons */
 
 input[type="submit"],
