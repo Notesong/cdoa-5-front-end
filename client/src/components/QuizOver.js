@@ -32,7 +32,7 @@ const QuizOver = () =>{
         <div className='Quiz_over'>
             <div className="end">
                 {isNameHere ? (
-                    <h2>Time's up.<br />Way to Go {`${isNameHere}`}</h2>
+                    <h2>Time's up.<br />Way to go, {`${isNameHere}`}!</h2>
                 ) :(
                     <h2>Time's up.<br />Way to Go!</h2>
                 )}
@@ -42,16 +42,16 @@ const QuizOver = () =>{
                 <Button buttonText = {'Play Again?'} pathName={'Quiz'} />
             </div>
             <div className="signup_share">
-                {isNameHere ? null : (
+            {/* {isNameHere ? null : (
                     <div>
                         <h3>Sign up to save your score and brag to all your friends:</h3>
                         <UserName score={score}/>
                     </div>    
-                )}
+                )} */}
                 <h3><a className="twitter-share-button"
                     href={`https://twitter.com/intent/tweet?text=I%20scored%20${score}%20on%20CDoA`}
                     data-size="large">
-                <i className="fab fa-twitter-square"></i> Tweet Your High Score!</a></h3>
+                <i className="fab fa-twitter-square"></i><br />Tweet Your High Score!</a></h3>
             </div>
 
         </div>
