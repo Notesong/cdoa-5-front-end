@@ -18,9 +18,9 @@ export const BASE_URL = `https://cdoa5-backend.herokuapp.com/`;
   
   return (
     <div className="App">
-       <header className="App-header">  
-       <Nav/>
-        <h1>Celebrity Dead or Alive</h1>
+       <header className="App-header">
+        <h1>Celebrity Dead or Alive</h1>  
+        <Nav/>
        </header>
       
       <Switch>

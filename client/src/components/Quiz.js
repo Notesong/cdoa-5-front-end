@@ -8,7 +8,7 @@ const Quiz = () => {
   // celeb data
   const [data, setData] = useState([])
   // current celeb
-  const [currentCeleb, setCurrentCeleb] = useState({id: 11, name: "Bruce Willis", imageUrl: "", isDead: false})
+  const [currentCeleb, setCurrentCeleb] = useState({id: 10, name: "Nichelle Nichols", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Nichelle_Nichols_by_Gage_Skidmore.jpg/220px-Nichelle_Nichols_by_Gage_Skidmore.jpg", isDead: "false"})
   // current ID
   const [id, setId] = useState(0)
   // sets score
@@ -39,8 +39,8 @@ const Quiz = () => {
 
   //  now we check and see if the user guessed dead here
   // Adjusts score appropriately
-  const isDead = (dead) => {
-    if (dead) {
+  const isDead = () => {
+    if (currentCeleb.isDead === "true") {
       setScore(score + 1)
     }
     finalizeAnswer()
@@ -48,8 +48,8 @@ const Quiz = () => {
 
   // checks and sees if the celeb is Alive
   // Adjusts score appropriately
-  const isAlive = (dead) => {
-    if (!dead) {
+  const isAlive = () => {
+    if (currentCeleb.isDead === "false") {
       setScore(score + 1)
     } 
     finalizeAnswer()
@@ -90,10 +90,14 @@ const Quiz = () => {
               <h3>Correct: &nbsp;&nbsp; {score}</h3>
             </div>
             {/* <Timebar /> */}
-            {data.length > 0 ? <CelebCard currentCeleb={currentCeleb} /> : <div>Loading...</div>}
-            <button onClick={()=> isDead(currentCeleb.death)}>Dead</button>
-            <button onClick={()=> isAlive(currentCeleb.death)}>Alive</button>
+            <div className='quiz-main-panel'>
+              {data.length > 0 ? <CelebCard currentCeleb={currentCeleb} /> : <div>Loading...</div>}
+              <div>
+                <button className='button large' onClick={()=> isDead()}>Dead</button>
+                <button className='button large' onClick={()=> isAlive()}>Alive</button>
+              </div>
             </div>
+          </div>
         )
       }
       />

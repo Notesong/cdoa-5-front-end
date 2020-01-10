@@ -3,13 +3,12 @@ import { Link } from 'react-router-dom';
 
 const Nav = () => {
     return (
-      <nav>
- 
+      <nav id="nav">
         <Link to='/Quiz'>Quiz</Link>
        {/* only displayed if logged in */}
         <Link to='/scoreboard'>Scoreboard</Link>
-        <Link to='/login'>Login</Link>
-        <Link to='/register'>Signup</Link>
+        <Link to='/login'><span className="button small">Login</span></Link>
+        <Link to='/register'><span className="button small alt">Signup</span></Link>
       </nav>
     )
 }
