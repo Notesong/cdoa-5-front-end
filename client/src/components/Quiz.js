@@ -40,10 +40,7 @@ const Quiz = () => {
   //  now we check and see if the user guessed dead here
   // Adjusts score appropriately
   const isDead = () => {
-    console.log(currentCeleb.name)
-    console.log(currentCeleb.isDead)
     if (currentCeleb.isDead === "true") {
-      console.log("inside if")
       setScore(score + 1)
     }
     finalizeAnswer()
@@ -52,7 +49,6 @@ const Quiz = () => {
   // checks and sees if the celeb is Alive
   // Adjusts score appropriately
   const isAlive = () => {
-    console.log(currentCeleb.isDead)
     if (currentCeleb.isDead === "false") {
       setScore(score + 1)
     } 
