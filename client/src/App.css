@@ -300,6 +300,10 @@ hr {
 
 /* Login and Signup*/
 
+form {
+  text-align: left;
+}
+
 .loginData, .register-user {
   max-width: 300px;
   margin: 2rem auto;
@@ -558,6 +562,10 @@ input[type="button"],
     font-size: 1.1rem;
   }
 
+  h5 {
+    font-size: 0.9rem;
+  }
+
   label {
     font-size: 1.1rem;
   }
@@ -625,6 +633,10 @@ input[type="button"],
 
   .scoreboard .playagain {
     display: none;
+  }
+
+  .rank, .score, .date {
+    padding: 0;
   }
 
   input[type="submit"].large,

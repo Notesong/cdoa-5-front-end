@@ -26,7 +26,7 @@ const Login = () => {
         value={loginInfo.email}
         name="email"
         onChange={handleChange}
-        maxLength="20"
+        maxLength="40"
         required
         />
         </label>

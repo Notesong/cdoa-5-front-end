@@ -20,24 +20,24 @@ const Scoreboard = () => {
       <div className='board'>
         {/* scoreboard displays rank, score, and date played */}
         <div className='rank'>
-          <h3>RANK</h3>
+          <h4>RANK</h4>
           {/* creates a rank from 1 and on, based on how many games were played */}
           {games.map((game, i) => (
-            <h4 key={game.score + i}>{i + 1}</h4>
+            <h5 key={game.score + i}>{i + 1}</h5>
           ))}
         </div>
         {/* displays the score for the current game */}
         <div className='score'>
-          <h3>SCORE</h3>
+          <h4>SCORE</h4>
           {games.map((game, i) => (
-            <h4 key={game.score + i}>{game.score}</h4>
+            <h5 key={game.score + i}>{game.score}</h5>
           ))}
         </div>
         {/* displays the date the current game was played */}
         <div className='date'>
-        <h3>DATE</h3>
+        <h4>DATE</h4>
           {games.map((game, i) => (
-            <h4 key={game.score + i}>{game.date}</h4>
+            <h5 key={game.score + i}>{game.date}</h5>
           ))}
         </div>
       </div>   
