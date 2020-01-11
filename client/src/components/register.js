@@ -42,7 +42,7 @@ const Register = () => {
                     name='email'
                     type='email'
                     onChange={handleChange}
-                    maxLength="20"
+                    maxLength="40"
                     required
                     />
                 </label>
