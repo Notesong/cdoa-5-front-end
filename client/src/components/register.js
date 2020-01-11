@@ -15,6 +15,10 @@ const Register = () => {
     window.localStorage.setItem('registerUser', registerUser.username)
 
     return (
+        // signup form to allow user to save scores in the database
+        // requires a username, email, and password
+        // the username is used to personalize the website and scores
+        // the username is not used to login
         <div className='register-user'>
             <h2>Signup</h2>
             <form>
@@ -27,6 +31,7 @@ const Register = () => {
                     type='name'
                     onChange={handleChange}
                     maxLength="20"
+                    required
                     />
                 </label>
                 <label htmlFor='Email'>
@@ -38,6 +43,7 @@ const Register = () => {
                     type='email'
                     onChange={handleChange}
                     maxLength="20"
+                    required
                     />
                 </label>
                 <label htmlFor='password'>

@@ -7,6 +7,7 @@ const Button = (props) => {
 
     return (
         <Link to={`/${path}`}>
+            {/* basic button syntax */}
             <button className="button large" type={props.type}>{text}</button>
         </Link>
     )

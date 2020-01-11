@@ -5,6 +5,7 @@ import Button from './Button';
 const Login = () => {
   const [loginInfo, setLoginInfo] = useState({ email: "", password: ""})
 
+  // sets login information
   const handleChange = (e) => {
     setLoginInfo({ ...loginInfo, [e.target.name]: e.target.value})
   }
@@ -12,6 +13,8 @@ const Login = () => {
   window.localStorage.setItem("LoginInfo", JSON.stringify(loginInfo))
 
   return(
+    // form for user to login
+    // requests email and password from user
     <div className="loginData">
       <h2>Login</h2>
       <form>
@@ -24,6 +27,7 @@ const Login = () => {
         name="email"
         onChange={handleChange}
         maxLength="20"
+        required
         />
         </label>
         <label htmlFor='password'>
@@ -35,9 +39,11 @@ const Login = () => {
         name="password"
         onChange={handleChange}
         maxLength="20"
+        required
         />
         </label>
        <div className= "buttons">
+          {/* submit and signup buttons */}
          <Button type='submit' buttonText={'SUBMIT'} pathName={''} />
          <h3>Or</h3>
          <Button type='submit' buttonText={'SIGNUP'} pathName={'register'}/>
