@@ -282,11 +282,11 @@ hr {
   padding: 1rem;
 }
 
-.rank, .score, .date {
+.game, .score, .date {
   padding: 2rem;
 }
 
-.rank, .score, .playagain {
+.game, .score, .playagain {
   text-align: center;
 }
 
@@ -635,7 +635,7 @@ input[type="button"],
     display: none;
   }
 
-  .rank, .score, .date {
+  .game, .score, .date {
     padding: 0;
   }
 

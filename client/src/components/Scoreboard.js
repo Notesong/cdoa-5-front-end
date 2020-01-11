@@ -18,10 +18,10 @@ const Scoreboard = () => {
         </div>
       </header>
       <div className='board'>
-        {/* scoreboard displays rank, score, and date played */}
-        <div className='rank'>
-          <h4>RANK</h4>
-          {/* creates a rank from 1 and on, based on how many games were played */}
+        {/* scoreboard displays game number, score, and date played */}
+        <div className='game'>
+          <h4>GAME</h4>
+          {/* displays the game number, based on how many games were played */}
           {games.map((game, i) => (
             <h5 key={game.score + i}>{i + 1}</h5>
           ))}
