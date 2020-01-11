@@ -55,6 +55,7 @@ const Register = () => {
                     name='password'
                     onChange={handleChange}
                     maxLength="20"
+                    required
                 />
                 </label>
                 <div className="buttons">
