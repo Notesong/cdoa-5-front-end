@@ -3,6 +3,8 @@ import Axios from 'axios';
 import { BASE_URL } from '../App';
 import { parse } from 'url';
 
+// not currently being used in the app
+// meant to prompt a user to register
 
 const UserName = (props) => {
     const [ playerName, setPlayerName] = useState('')

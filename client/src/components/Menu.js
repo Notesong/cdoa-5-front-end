@@ -2,6 +2,8 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 // Basic syntax from: https://codesandbox.io/s/lpo41x20kq
+// this menu is used only for the mobile version of the website
+// Regular navbar is in Nav.js
 
 export default ({ close }) => (
   <div menu="menu">
@@ -34,12 +36,3 @@ export default ({ close }) => (
     </ul>
   </div>
 );
-
-
-{/* <nav id="nav">
-<Link to='/'>Home</Link>
-<Link to='/Quiz'>Quiz</Link>
-<Link to='/Scoreboard'>Scoreboard</Link>
-<Link to='/login'><span className="button small">Login</span></Link>
-<Link to='/register'><span className="button small alt">Signup</span></Link>
-</nav> */}

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import axios from 'axios';
 import CelebCard from './CelebCard';
-import Timebar from "./Timebar";
+// import Timebar from "./Timebar";
 
 const Quiz = () => {
   // celeb data
@@ -17,7 +17,7 @@ const Quiz = () => {
   // for timer
   const [time, setTime] = useState(false)
 
-  // this is where we will grab data from our API
+  // Grab the celebrity data from the backend API and save to data
   useEffect(() => {
     axios
     .get(
@@ -86,13 +86,16 @@ const Quiz = () => {
         ) : (
           <div className='p-content'>
             <div className='score-status'>
+              {/* Displays the score */}
               <h3>Guesses: &nbsp;&nbsp; {userAnswer}</h3>
               <h3>Correct: &nbsp;&nbsp; {score}</h3>
             </div>
             {/* <Timebar /> */}
             <div className='quiz-main-panel'>
+              {/* Displays the current celebrity */}
               {data.length > 0 ? <CelebCard currentCeleb={currentCeleb} /> : <div>Loading...</div>}
               <div>
+                {/* Dead or Alive buttons */}
                 <button className='button large' onClick={()=> isDead()}>Dead</button>
                 <button className='button large' onClick={()=> isAlive()}>Alive</button>
               </div>

@@ -1,13 +1,17 @@
 import React from 'react';
 import Button from './Button';
-import UserName from './UserName';
+// import UserName from './UserName';
 
 const QuizOver = () =>{
+    // get quiz results from local storage
     const correctGuesses = localStorage.getItem('CorrectGuesses');
     const guesses = localStorage.getItem("TotalGuesses");
 
+    // calculate score 
+    // less points given based on how many were wrong to how many guesses
     let score = Math.floor(correctGuesses *(10 * (correctGuesses / guesses)));
 
+    // if no score, set it to 0
     if (isNaN(score)) {
         score = 0;
     }
@@ -15,12 +19,14 @@ const QuizOver = () =>{
     let isNameHere = localStorage.getItem("registerUser") || "";
     localStorage.setItem('GameScore', JSON.stringify(score));
 
+    // create date to store with score
     let today = new Date();
     const dd = String(today.getDate()).padStart(2, '0');
     const mm = String(today.getMonth() + 1).padStart(2, '0');
     const yyyy = today.getFullYear();
     today = mm + '/' + dd + '/' + yyyy;
     
+    // Store game
     if ( isNameHere) {
         let oldGames = JSON.parse(localStorage.getItem(isNameHere)) || [];
         let newGame = { score: score, date: today};
@@ -31,6 +37,7 @@ const QuizOver = () =>{
     return(
         <div className='Quiz_over'>
             <div className="end">
+                {/* Display results from quiz */}
                 {isNameHere ? (
                     <h2>Time's up.<br />Way to go, {`${isNameHere}`}!</h2>
                 ) :(
@@ -48,6 +55,7 @@ const QuizOver = () =>{
                         <UserName score={score}/>
                     </div>    
                 )} */}
+                {/* help user post high score to Twitter */}
                 <h3><a className="twitter-share-button"
                     href={`https://twitter.com/intent/tweet?text=I%20scored%20${score}%20on%20CDoA`}
                     data-size="large">

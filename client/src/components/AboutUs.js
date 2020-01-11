@@ -7,6 +7,7 @@ const AboutUs = () => {
         <header>
             <h2>About Us</h2>
         </header>
+        {/* Display our information:  Image, name, position, and github links. */}
         <section className="everyone">
             <div className="individuals">
                 <a href="https://github.com/DomBruno"><div className="dom"></div></a>
