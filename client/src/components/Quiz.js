@@ -39,7 +39,7 @@ const Quiz = () => {
 
   // timer set for 30secs but we can decide on timer later
   useEffect(() => {
-    const timer = setTimeout(() => setTime(true), 5000)
+    const timer = setTimeout(() => setTime(true), 30000)
     return () => clearTimeout(timer)
   }, [])
 
