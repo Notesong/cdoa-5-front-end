@@ -21,11 +21,12 @@ const Login = (props) => {
             username: returningUser.username,
             password: returningUser.password
           })
-          localStorage.setItem('id', res.data.id)
-          localStorage.setItem('token', res.data.token)
-          localStorage.setItem('registerUser', returningUser.username)
+          localStorage.setItem('id', res.data.id);
+          localStorage.setItem('token', res.data.token);
+          localStorage.setItem('registerUser', returningUser.username);
+          props.setIsLoggedIn(true);
           // go to success page if registration is successful
-          props.history.push('/Success')
+          props.history.push('/Success');
         } catch (error) {
             alert("Unable to login.")
             console.log('Unable to login.', error)

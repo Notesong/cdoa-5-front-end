@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Popup from "reactjs-popup";
 // general components
@@ -37,12 +37,14 @@ export const BASE_URL = `https://cdoa5-backend.herokuapp.com/`;
 
 
  export default function App() {
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   
   return (
     <div className="App" style={styles}>
       <header className="App-header">
         <h1>Celebrity Dead or Alive</h1>  
-        <Nav/>
+        <Nav isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       </header>
       {/* Popup from: https://codesandbox.io/s/lpo41x20kq */}
       <Popup
@@ -52,18 +54,18 @@ export const BASE_URL = `https://cdoa5-backend.herokuapp.com/`;
         closeOnDocumentClick={false}
         trigger={open => <BurgerIcon open={open} />}
       >
-        {close => <Menu close={close} />}
+        {close => <Menu close={close} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}
       </Popup>
       <div className="lower">
         <Switch>
           <Route exact path='/' component={QuizStart}/>
           <Route path='/Scoreboard' component={Scoreboard} />
           <Route path='/Quiz' component={Quiz} />
-          <Route path='/QuizOver' component={QuizOver} />
-          <Route path='/Login' render={routeProps => {return <Login {...routeProps} />;}}/>
-          <Route path='/Register' render={routeProps => {return <Register {...routeProps} />;}}/>
+          <Route path='/QuizOver' render={routeProps => {return <QuizOver {...routeProps} setIsLoggedIn={setIsLoggedIn} />;}}/>
+          <Route path='/Login' render={routeProps => {return <Login {...routeProps} setIsLoggedIn={setIsLoggedIn} />;}}/>
+          <Route path='/Register' render={routeProps => {return <Register {...routeProps} setIsLoggedIn={setIsLoggedIn} />;}}/>
           <Route path='/RegisterUser' component={UserName} />
-          <Route path='/Success' component={Success} />
+          <Route path='/Success' render={routeProps => {return <Success {...routeProps} isLoggedIn={isLoggedIn} />;}}/>
           <Route path='/AboutUs' component={AboutUs} />
           <Route path='/Attributions' component={Attributions} />
         </Switch>        

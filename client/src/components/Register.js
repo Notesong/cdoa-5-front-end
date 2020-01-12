@@ -28,9 +28,10 @@ const Register = (props) => {
                 password: registerUser.password
             })
             // set items to local storage for later retrieval
-            localStorage.setItem('id', res.data.id)
-            localStorage.setItem('token', res.data.token)
-            localStorage.setItem('registerUser', registerUser.username)
+            localStorage.setItem('id', res.data.id);
+            localStorage.setItem('token', res.data.token);
+            localStorage.setItem('registerUser', registerUser.username);
+            props.setIsLoggedIn(true);
             // go to success page if registration is successful
             props.history.push('/Success')
         } catch (error) {

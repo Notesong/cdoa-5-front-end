@@ -1,13 +1,15 @@
 import React from 'react';
 
-const Success = () =>{
+const Success = ({ isLoggedIn }) =>{
 
     let isNameHere = localStorage.getItem("registerUser") || "";
 
     return(
         <div className='success'>
             <h2>Success!</h2>
-            <h3>Welcome, {isNameHere}.</h3>
+            {/* chooses message based on whether they're logged in */}
+            { isLoggedIn && <h3>Welcome, {isNameHere}.</h3> }
+            { !isLoggedIn && <h3>You've been logged out.</h3> }
         </div>
     )
 }

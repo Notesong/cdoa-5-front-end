@@ -5,34 +5,29 @@ import { NavLink } from "react-router-dom";
 // this menu is used only for the mobile version of the website
 // Regular navbar is in Nav.js
 
-export default ({ close }) => (
-  <div menu="menu">
+const Menu = ({ close, isLoggedIn, setIsLoggedIn }) => {
+
+  // reset everything for logout
+  function logout() {
+    localStorage.setItem('GameScore', "");
+    localStorage.setItem('id', "");
+    localStorage.setItem('token', "");
+    localStorage.setItem('registerUser', {});
+    setIsLoggedIn(false);
+  }
+
+  return (
+    <div menu="menu">
     <ul>
-      <li>
-        <NavLink onClick={close} className="menu_item" activeClassName="current" to="/">
-          Home
-        </NavLink>
-      </li>
-      <li>
-        <NavLink onClick={close} className="menu_item" activeClassName="current" to="Quiz">
-          Quiz
-        </NavLink>
-      </li>
-      <li>
-        <NavLink onClick={close} className="menu_item" activeClassName="current" to="Scoreboard">
-          Scoreboard
-        </NavLink>
-      </li>
-      <li>
-        <NavLink onClick={close} className="menu_item" activeClassName="current" to="login">
-          Login
-        </NavLink>
-      </li>
-      <li>
-        <NavLink onClick={close} className="menu_item" activeClassName="current" to="register">
-          Signup
-        </NavLink>
-      </li>
+      <li><NavLink onClick={close} className="menu_item" activeClassName="current" to="/">Home</NavLink></li>
+      <li><NavLink onClick={close} className="menu_item" activeClassName="current" to="Quiz">Quiz</NavLink></li>
+      { isLoggedIn && <li><NavLink onClick={close} className="menu_item" activeClassName="current" to="Scoreboard">Scoreboard</NavLink></li> }
+      { isLoggedIn && <li><NavLink onClick={close} className="menu_item" activeClassName="current" to="Success"><span onClick={()=> logout()}>Logout</span></NavLink></li> }
+      { !isLoggedIn && <li><NavLink onClick={close} className="menu_item" activeClassName="current" to="login">Login</NavLink></li> }
+      { !isLoggedIn && <li><NavLink onClick={close} className="menu_item" activeClassName="current" to="register">Signup</NavLink></li> }
     </ul>
   </div>
-);
+  )
+};
+
+export default Menu;

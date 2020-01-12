@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
 import { BASE_URL } from '../App';
-import { parse } from 'url';
 
 // not currently being used in the app
 // meant to prompt a user to register
 
-const UserName = () => {
+const UserName = ({ setIsLoggedIn }) => {
 
     const score = localStorage.getItem("GameScore");
 
@@ -39,6 +38,7 @@ const UserName = () => {
                 {headers: {Authorization: `${res.data.token}`}}
             )
             localStorage.setItem('registerUser', registerUser.username)
+            setIsLoggedIn(true);
         } catch (error) {
             alert("Score Not Saved");
             console.log('Score not saved', error);

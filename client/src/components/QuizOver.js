@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from "react-router-dom";
 import UserName from './UserName';
 
-const QuizOver = ({ close }) =>{
+const QuizOver = ({ close, setIsLoggedIn }) =>{
     // get quiz results from local storage
     const correctGuesses = localStorage.getItem('CorrectGuesses');
     const guesses = localStorage.getItem("TotalGuesses");
@@ -53,7 +53,8 @@ const QuizOver = ({ close }) =>{
                     <div>
                         <h5>Brag to all your friends!</h5>
                         <h5>Sign up to save your scores:</h5>
-                        <UserName />
+                        {/* set user to be logged in */}
+                        <UserName setIsLoggedIn={setIsLoggedIn} />
                     </div>    
                 )}
                 {/* help user post high score to Twitter */}
