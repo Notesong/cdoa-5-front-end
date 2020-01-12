@@ -228,6 +228,10 @@ hr {
   height: 250px;
 }
 
+.game-quiz i {
+  font-size: 5rem;
+}
+
 /* Quiz Over */
 
 .Quiz_over {
@@ -235,6 +239,10 @@ hr {
   justify-content: space-evenly;
   margin: 2rem auto;
   max-width: 900px;
+}
+
+.twitter {
+  margin-top: 1rem;
 }
 
 .end, .signup_share {
@@ -246,7 +254,7 @@ hr {
 }
 
 .signup_share i {
-  font-size: 4rem;
+  font-size: 2rem;
 }
 
 .end {
@@ -263,6 +271,10 @@ hr {
   flex-direction: column;
   text-align: center;
   justify-content: space-evenly;
+}
+
+.game-quiz .popup-content {
+  width: 70% !important;
 }
 
 /* Scoreboard */
@@ -304,12 +316,18 @@ form {
   text-align: left;
 }
 
-.loginData, .register-user {
+.user-form {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.login-user, .register-user {
   max-width: 300px;
   margin: 2rem auto;
 }
 
-.loginData h2, .register-user h2 {
+.login-user h2, .register-user h2 {
     text-align: center;
 }
 
@@ -319,7 +337,11 @@ label {
   letter-spacing: -0.025em;
 }
 
-input[type=email], input[type=name], input[type=password] {
+.small-type {
+  font-size: 1rem;
+}
+
+input[type=username], input[type=password] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -332,6 +354,24 @@ input[type=email], input[type=name], input[type=password] {
 
 .buttons button {
   margin: 1rem;
+}
+
+.user-form .button {
+  margin: 0 auto;
+}
+
+.user-form label {
+  font-size: 1rem;
+  line-height: 1rem;
+  letter-spacing: -0.025em;
+  display: block;
+}
+
+.user-form input[type=username], .user-form input[type=password] {
+  width: 15rem;
+  padding: 0.25rem;
+  margin: 8px 0;
+  box-sizing: border-box;
 }
 
 /* About Us */
@@ -720,7 +760,12 @@ input[type="button"],
   .menu_item:hover {
     color: rgb(65, 65, 65);
   }
+  .game-quiz .popup-content {
+    width: 90% !important;
+  }
 }
+
+
 
 /* .App {
   text-align: center;

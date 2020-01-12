@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { Redirect, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import axios from 'axios';
+import Popup from "reactjs-popup";
 import CelebCard from './CelebCard';
+import QuizOver from './QuizOver'
 // import Timebar from "./Timebar";
+
+const contentStyle = {
+  // background: "rgba(255,255,255,0)",
+};
 
 const Quiz = () => {
   // celeb data
@@ -33,7 +39,7 @@ const Quiz = () => {
 
   // timer set for 30secs but we can decide on timer later
   useEffect(() => {
-    const timer = setTimeout(() => setTime(true), 30000)
+    const timer = setTimeout(() => setTime(true), 5000)
     return () => clearTimeout(timer)
   }, [])
 
@@ -65,6 +71,11 @@ const Quiz = () => {
       setId(id + 1)
     }
   }
+
+  // refresh the page if player wants to play again
+  function refreshPage() {
+    window.location.reload(false);
+  }
   
   // update number of answers and changes the current celeb
   const finalizeAnswer = () => {
@@ -82,7 +93,30 @@ const Quiz = () => {
       path='/Quiz'
       render={() =>
         time ? (
-          <Redirect to='/QuizOver'/>
+          // after time is up...
+          // this section displays buttons to get score and to play again
+          // if get score button is pressed, a modal pops up
+          <div className="times-up">
+            <div className='p-content'>
+              <div className='score-status'>
+                {/* Displays the score */}
+                <h3>Guesses: &nbsp;&nbsp; {userAnswer}</h3>
+                <h3>Correct: &nbsp;&nbsp; {score}</h3>
+              </div>
+              <h2><i className="fad fa-alarm-exclamation"></i></h2>
+              <h2>Time's up!</h2>
+            </div>
+            {/* popup modal to display final score and Twitter button */}
+            <Popup
+              modal
+              contentStyle={contentStyle}
+              closeOnDocumentClick={true}
+              trigger={<button className="button large">See Your Score</button>}
+            >
+              {close => <QuizOver close={close} />}
+            </Popup>
+            <button onClick={refreshPage} className="button large">Play Again</button>
+          </div>
         ) : (
           <div className='p-content'>
             <div className='score-status'>
