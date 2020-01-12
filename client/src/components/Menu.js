@@ -9,10 +9,9 @@ const Menu = ({ close, isLoggedIn, setIsLoggedIn }) => {
 
   // reset everything for logout
   function logout() {
-    localStorage.setItem('GameScore', "");
-    localStorage.setItem('id', "");
-    localStorage.setItem('token', "");
-    localStorage.setItem('registerUser', {});
+    localStorage.removeItem('id');
+    localStorage.removeItem('token');
+    localStorage.removeItem('registerUser');
     setIsLoggedIn(false);
   }
 
