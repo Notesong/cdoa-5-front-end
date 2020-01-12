@@ -4,7 +4,7 @@ import { BASE_URL } from '../App';
 
 // not currently being used in the app
 // meant to prompt a user to register
-const Register = () => {
+const Register = (props) => {
 
     const [registerUser, setRegisterUser] = useState({
         username: '',
@@ -17,27 +17,31 @@ const Register = () => {
 
     const registration = async () => {
         try {
+            // attempt to register user
             await Axios.post(`${BASE_URL}api/register`, {
                 username: registerUser.username,
                 password: registerUser.password
             })
+            // if registration is successful, log them in
             const res = await Axios.post(`${BASE_URL}api/login`, {
                 username: registerUser.username,
                 password: registerUser.password
             })
+            // set items to local storage for later retrieval
             localStorage.setItem('id', res.data.id)
             localStorage.setItem('token', res.data.token)
+            localStorage.setItem('registerUser', registerUser.username)
+            // go to success page if registration is successful
+            props.history.push('/Success')
         } catch (error) {
             alert("Registration unsuccessful.")
             console.log('Registration unsuccessful.', error)
         }
-        
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
         registration()
-        localStorage.setItem('registerUser', registerUser.username)
     }
 
     return (

@@ -15,7 +15,7 @@ const QuizOver = ({ close }) =>{
     if (isNaN(score)) {
         score = 0;
     }
-    // call to DB
+
     let isNameHere = localStorage.getItem("registerUser") || "";
     localStorage.setItem('GameScore', JSON.stringify(score));
 
@@ -27,7 +27,7 @@ const QuizOver = ({ close }) =>{
     today = mm + '/' + dd + '/' + yyyy;
     
     // Store game
-    if ( isNameHere) {
+    if (isNameHere) {
         let oldGames = JSON.parse(localStorage.getItem(isNameHere)) || [];
         let newGame = { score: score, date: today};
         oldGames.push(newGame);

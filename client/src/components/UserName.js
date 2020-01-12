@@ -13,7 +13,7 @@ const UserName = () => {
     const [registerUser, setRegisterUser] = useState({
         username: '',
         password: ''
-    })
+    });
 
     const handleChange = (e) => {
         setRegisterUser({ ...registerUser, [e.target.name]: e.target.value })
@@ -23,50 +23,32 @@ const UserName = () => {
 
     const scoreToDataBase = async () => {
         try {
-            var id = localStorage.getItem('id') || '';
-            var token = localStorage.getItem('token') || '';
-            //const token = localStorage.getItem('token') || '';
-            if(id) {
-                // console.log(id)
-                // await Axios.put(`${BASE_URL}api/auth/users/${res.data.id}`, {
-                //     score: score
-                // })
-            }else{
-                await Axios.post(`${BASE_URL}api/register`, {
-                    username: registerUser.username,
-                    password: registerUser.password
-                })
-                const res = await Axios.post(`${BASE_URL}api/login`, {
-                    username: registerUser.username,
-                    password: registerUser.password
-                })
-                localStorage.setItem('id', res.data.id);
-                localStorage.setItem('token', res.data.token);
-                await Axios.put(
-                    `${BASE_URL}api/auth/users/${res.data.id}`, 
-                    {score: score},
-                    {headers: {Authorization: `${res.data.token}`}}
-                )
-
-
-                // const api = 'your api'; 
-                // const token = JSON.parse(sessionStorage.getItem('data'));
-                // const token = user.data.id;       /*take only token and save in token variable*/
-                // axios.get(api , { headers: {"Authorization" : `Bearer ${token}`} })
-
-
-            }
+            await Axios.post(`${BASE_URL}api/register`, {
+                username: registerUser.username,
+                password: registerUser.password
+            })
+            const res = await Axios.post(`${BASE_URL}api/login`, {
+                username: registerUser.username,
+                password: registerUser.password
+            })
+            localStorage.setItem('id', res.data.id);
+            localStorage.setItem('token', res.data.token);
+            await Axios.put(
+                `${BASE_URL}api/auth/users/${res.data.id}`, 
+                {score: score},
+                {headers: {Authorization: `${res.data.token}`}}
+            )
+            localStorage.setItem('registerUser', registerUser.username)
         } catch (error) {
-            alert("Score Not Saved")
-            console.log('Score not saved', error)
+            alert("Score Not Saved");
+            console.log('Score not saved', error);
         }
-    }
+    };
 
     const handleSubmit = (e) => {
-        e.preventDefault()
-        scoreToDataBase()
-        localStorage.setItem('registerUser', registerUser.username)
-    }
+        e.preventDefault();
+        scoreToDataBase();
+    };
 
     return (
         <div className='user-form'>
@@ -83,7 +65,7 @@ const UserName = () => {
                     />
                 </label>
                 <label htmlFor='password'>
-                    Password (4-20 characters)<br />
+                    Password <span className="small-type">(4-20 characters)</span><br />
                 <input
                     type='password'
                     placeholder='Enter a password'
@@ -98,6 +80,6 @@ const UserName = () => {
             </form>
         </div>
     )
-}
+};
 
 export default UserName;

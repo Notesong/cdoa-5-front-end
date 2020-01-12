@@ -4,7 +4,7 @@ import { BASE_URL } from '../App';
 
 // not currently being used in the app
 // meant to prompt a user to register
-const Login = () => {
+const Login = (props) => {
 
     const [returningUser, setRreturningUser] = useState({
         username: '',
@@ -23,6 +23,9 @@ const Login = () => {
           })
           localStorage.setItem('id', res.data.id)
           localStorage.setItem('token', res.data.token)
+          localStorage.setItem('registerUser', returningUser.username)
+          // go to success page if registration is successful
+          props.history.push('/Success')
         } catch (error) {
             alert("Unable to login.")
             console.log('Unable to login.', error)
@@ -32,7 +35,6 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         login()
-        localStorage.setItem('registerUser', returningUser.username)
     }
 
     return (

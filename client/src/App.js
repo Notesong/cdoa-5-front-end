@@ -18,6 +18,7 @@ import Scoreboard from './components/Scoreboard';
 import Register from './components/Register';
 import Login from "./components/Login";
 import UserName from './components/UserName';
+import Success from './components/Success';
 
 // styles
 import './App.css';
@@ -59,9 +60,10 @@ export const BASE_URL = `https://cdoa5-backend.herokuapp.com/`;
           <Route path='/Scoreboard' component={Scoreboard} />
           <Route path='/Quiz' component={Quiz} />
           <Route path='/QuizOver' component={QuizOver} />
-          <Route path='/Login' component={Login} />
-          <Route path='/Register' component={Register} />
+          <Route path='/Login' render={routeProps => {return <Login {...routeProps} />;}}/>
+          <Route path='/Register' render={routeProps => {return <Register {...routeProps} />;}}/>
           <Route path='/RegisterUser' component={UserName} />
+          <Route path='/Success' component={Success} />
           <Route path='/AboutUs' component={AboutUs} />
           <Route path='/Attributions' component={Attributions} />
         </Switch>        
@@ -70,5 +72,3 @@ export const BASE_URL = `https://cdoa5-backend.herokuapp.com/`;
     </div>
   );
 }
-
-

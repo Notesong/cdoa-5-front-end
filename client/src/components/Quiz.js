@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Redirect, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import axios from 'axios';
 import Popup from "reactjs-popup";
 import CelebCard from './CelebCard';
@@ -72,7 +72,7 @@ const Quiz = () => {
     }
   }
 
-  // refresh the page
+  // refresh the page if player wants to play again
   function refreshPage() {
     window.location.reload(false);
   }
@@ -103,7 +103,7 @@ const Quiz = () => {
                 <h3>Guesses: &nbsp;&nbsp; {userAnswer}</h3>
                 <h3>Correct: &nbsp;&nbsp; {score}</h3>
               </div>
-              <h2><i class="fad fa-alarm-exclamation"></i></h2>
+              <h2><i className="fad fa-alarm-exclamation"></i></h2>
               <h2>Time's up!</h2>
             </div>
             {/* popup modal to display final score and Twitter button */}
