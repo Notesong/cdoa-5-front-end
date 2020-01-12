@@ -15,8 +15,9 @@ import Quiz from './components/Quiz';
 import QuizOver from './components/QuizOver';
 import Scoreboard from './components/Scoreboard';
 // account components
-import Register from './components/register';
+import Register from './components/Register';
 import Login from "./components/Login";
+import UserName from './components/UserName';
 
 // styles
 import './App.css';
@@ -58,8 +59,9 @@ export const BASE_URL = `https://cdoa5-backend.herokuapp.com/`;
           <Route path='/Scoreboard' component={Scoreboard} />
           <Route path='/Quiz' component={Quiz} />
           <Route path='/QuizOver' component={QuizOver} />
-          <Route path='/login' component={Login} />
-          <Route path='/register' component={Register} />
+          <Route path='/Login' component={Login} />
+          <Route path='/Register' component={Register} />
+          <Route path='/RegisterUser' component={UserName} />
           <Route path='/AboutUs' component={AboutUs} />
           <Route path='/Attributions' component={Attributions} />
         </Switch>        

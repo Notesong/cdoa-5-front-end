@@ -6,32 +6,55 @@ import { parse } from 'url';
 // not currently being used in the app
 // meant to prompt a user to register
 
-const UserName = (props) => {
-    const [ playerName, setPlayerName] = useState('')
+const UserName = () => {
+
+    const score = localStorage.getItem("GameScore");
+
+    const [registerUser, setRegisterUser] = useState({
+        username: '',
+        password: ''
+    })
 
     const handleChange = (e) => {
-        setPlayerName(e.target.value)
+        setRegisterUser({ ...registerUser, [e.target.name]: e.target.value })
     }
+    
+    // const [ playerName, setPlayerName] = useState('')
 
     const scoreToDataBase = async () => {
         try {
-            const id = localStorage.getItem('id') || '';
+            var id = localStorage.getItem('id') || '';
+            var token = localStorage.getItem('token') || '';
+            //const token = localStorage.getItem('token') || '';
             if(id) {
-                await Axios.post(`${BASE_URL}/api/register`, {
-                    player_id: parse(id),
-                    score: props.score
-                })
+                // console.log(id)
+                // await Axios.put(`${BASE_URL}api/auth/users/${res.data.id}`, {
+                //     score: score
+                // })
             }else{
-                const newPlayer = await Axios.post(`${BASE_URL}/api/register`, {
-                    name: playerName,
-                    email: `default${Date.now()}@gmail.com`,
-                    password: 'default'
+                await Axios.post(`${BASE_URL}api/register`, {
+                    username: registerUser.username,
+                    password: registerUser.password
                 })
-                localStorage.setItem('id', newPlayer.data.id)
-                await Axios.post(`${BASE_URL}/api/score`, {
-                    player_id: newPlayer.data.id,
-                    score: props.score
+                const res = await Axios.post(`${BASE_URL}api/login`, {
+                    username: registerUser.username,
+                    password: registerUser.password
                 })
+                localStorage.setItem('id', res.data.id);
+                localStorage.setItem('token', res.data.token);
+                await Axios.put(
+                    `${BASE_URL}api/auth/users/${res.data.id}`, 
+                    {score: score},
+                    {headers: {Authorization: `${res.data.token}`}}
+                )
+
+
+                // const api = 'your api'; 
+                // const token = JSON.parse(sessionStorage.getItem('data'));
+                // const token = user.data.id;       /*take only token and save in token variable*/
+                // axios.get(api , { headers: {"Authorization" : `Bearer ${token}`} })
+
+
             }
         } catch (error) {
             alert("Score Not Saved")
@@ -42,29 +65,36 @@ const UserName = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         scoreToDataBase()
-        localStorage.setItem('registerUser', playerName)
-        setPlayerName('')
+        localStorage.setItem('registerUser', registerUser.username)
     }
 
     return (
         <div className='user-form'>
             <form onSubmit={(e) => handleSubmit(e)}>
-                <label htmlFor='firstname'>
-                    name
+                <label htmlFor='username'>
+                   Username<br />
                     <input
-                    placeholder='Your Name'
-                    value={playerName}
-                    name='firstname'
+                    placeholder='Enter a username'
+                    value={registerUser.username}
+                    name='username'
+                    type='username'
                     onChange={handleChange}
+                    maxLength="20"
                     />
-                    {/* <input 
-                    placeholder='Your email'
-                    value='email'
-                    name='email'
-                    onChange={handleChange}
-                    /> */}
                 </label>
-                <button type={'submit'}>Submit</button>
+                <label htmlFor='password'>
+                    Password (4-20 characters)<br />
+                <input
+                    type='password'
+                    placeholder='Enter a password'
+                    value={registerUser.password}
+                    name='password'
+                    onChange={handleChange}
+                    maxLength="20"
+                    minLength="4"
+                />
+                </label>
+                <button className="button small" type={'submit'}>Submit</button>
             </form>
         </div>
     )

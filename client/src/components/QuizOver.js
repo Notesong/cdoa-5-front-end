@@ -1,8 +1,8 @@
 import React from 'react';
-import Button from './Button';
-// import UserName from './UserName';
+import { NavLink } from "react-router-dom";
+import UserName from './UserName';
 
-const QuizOver = () =>{
+const QuizOver = ({ close }) =>{
     // get quiz results from local storage
     const correctGuesses = localStorage.getItem('CorrectGuesses');
     const guesses = localStorage.getItem("TotalGuesses");
@@ -39,27 +39,28 @@ const QuizOver = () =>{
             <div className="end">
                 {/* Display results from quiz */}
                 {isNameHere ? (
-                    <h2>Time's up.<br />Way to go, {`${isNameHere}`}!</h2>
+                    <h2>Way to go, {`${isNameHere}`}!</h2>
                 ) :(
-                    <h2>Time's up.<br />Way to Go!</h2>
+                    <h2>Way to Go!</h2>
                 )}
                 <h4>Correct Guesses: {correctGuesses}</h4>
                 <h4>Total Guesses: {guesses}</h4>
                 <h3>Score: {isNaN(score) ? 0 : score}</h3>
-                <Button buttonText = {'Play Again?'} pathName={'Quiz'} />
+                <NavLink onClick={close} className="button" to="/Quiz">Close</NavLink>
             </div>
             <div className="signup_share">
-            {/* {isNameHere ? null : (
+                {isNameHere ? null : (
                     <div>
-                        <h3>Sign up to save your score and brag to all your friends:</h3>
-                        <UserName score={score}/>
+                        <h5>Brag to all your friends!</h5>
+                        <h5>Sign up to save your scores:</h5>
+                        <UserName />
                     </div>    
-                )} */}
+                )}
                 {/* help user post high score to Twitter */}
-                <h3><a className="twitter-share-button"
+                <h4 className="twitter"><a className="twitter-share-button"
                     href={`https://twitter.com/intent/tweet?text=I%20scored%20${score}%20on%20CDoA`}
                     data-size="large">
-                <i className="fab fa-twitter-square"></i><br />Tweet Your High Score!</a></h3>
+                <i className="fab fa-twitter-square"></i><br />Tweet Your High Score!</a></h4>
             </div>
 
         </div>

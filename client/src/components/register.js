@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import Button from "./Button";
+import Axios from 'axios';
+import { BASE_URL } from '../App';
 
+// not currently being used in the app
+// meant to prompt a user to register
 const Register = () => {
+
     const [registerUser, setRegisterUser] = useState({
         username: '',
-        email: '',
         password: ''
     })
 
@@ -12,42 +15,48 @@ const Register = () => {
         setRegisterUser({ ...registerUser, [e.target.name]: e.target.value })
     }
 
-    window.localStorage.setItem('registerUser', registerUser.username)
+    const registration = async () => {
+        try {
+            await Axios.post(`${BASE_URL}api/register`, {
+                username: registerUser.username,
+                password: registerUser.password
+            })
+            const res = await Axios.post(`${BASE_URL}api/login`, {
+                username: registerUser.username,
+                password: registerUser.password
+            })
+            localStorage.setItem('id', res.data.id)
+            localStorage.setItem('token', res.data.token)
+        } catch (error) {
+            alert("Registration unsuccessful.")
+            console.log('Registration unsuccessful.', error)
+        }
+        
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        registration()
+        localStorage.setItem('registerUser', registerUser.username)
+    }
 
     return (
-        // signup form to allow user to save scores in the database
-        // requires a username, email, and password
-        // the username is used to personalize the website and scores
-        // the username is not used to login
         <div className='register-user'>
             <h2>Signup</h2>
-            <form>
-                <label htmlFor='Username'>
-                   Username
+            <form onSubmit={(e) => handleSubmit(e)}>
+                <label htmlFor='username'>
+                   Username<br />
                     <input
                     placeholder='Enter a username'
                     value={registerUser.username}
                     name='username'
-                    type='name'
+                    type='username'
                     onChange={handleChange}
                     maxLength="20"
-                    required
-                    />
-                </label>
-                <label htmlFor='Email'>
-                    Email
-                    <input
-                    placeholder='Enter your email'
-                    value={registerUser.email}
-                    name='email'
-                    type='email'
-                    onChange={handleChange}
-                    maxLength="40"
-                    required
                     />
                 </label>
                 <label htmlFor='password'>
-                    Password
+                    Password <span className="small-type">(4-20 characters)</span><br />
                 <input
                     type='password'
                     placeholder='Enter a password'
@@ -55,15 +64,84 @@ const Register = () => {
                     name='password'
                     onChange={handleChange}
                     maxLength="20"
-                    required
+                    minLength="4"
                 />
                 </label>
-                <div className="buttons">
-                    <Button type='submit' buttonText={'Submit'} pathName={''}/>
-                </div>
+                <button className="button" type={'submit'}>Submit</button>
             </form>
         </div>
     )
 }
 
 export default Register;
+
+// import React, { useState } from 'react';
+// import Button from "./Button";
+
+// const Register = () => {
+//     const [registerUser, setRegisterUser] = useState({
+//         username: '',
+//         email: '',
+//         password: ''
+//     })
+
+//     const handleChange = (e) => {
+//         setRegisterUser({ ...registerUser, [e.target.name]: e.target.value })
+//     }
+
+//     window.localStorage.setItem('registerUser', registerUser.username)
+
+//     return (
+//         // signup form to allow user to save scores in the database
+//         // requires a username, email, and password
+//         // the username is used to personalize the website and scores
+//         // the username is not used to login
+//         <div className='register-user'>
+//             <h2>Signup</h2>
+//             <form>
+//                 <label htmlFor='Username'>
+//                    Username
+//                     <input
+//                     placeholder='Enter a username'
+//                     value={registerUser.username}
+//                     name='username'
+//                     type='name'
+//                     onChange={handleChange}
+//                     maxLength="20"
+//                     required
+//                     />
+//                 </label>
+//                 <label htmlFor='Email'>
+//                     Email
+//                     <input
+//                     placeholder='Enter your email'
+//                     value={registerUser.email}
+//                     name='email'
+//                     type='email'
+//                     onChange={handleChange}
+//                     maxLength="40"
+//                     required
+//                     />
+//                 </label>
+//                 <label htmlFor='password'>
+//                     Password (4-20 characters)
+//                 <input
+//                     type='password'
+//                     placeholder='Enter a password'
+//                     value={registerUser.password}
+//                     name='password'
+//                     onChange={handleChange}
+//                     maxLength="20"
+//                     minLength='4'
+//                     required
+//                 />
+//                 </label>
+//                 <div className="buttons">
+//                     <Button type='submit' buttonText={'Submit'} pathName={''}/>
+//                 </div>
+//             </form>
+//         </div>
+//     )
+// }
+
+// export default Register;
