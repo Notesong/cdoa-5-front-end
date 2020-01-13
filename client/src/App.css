@@ -341,7 +341,7 @@ label {
   font-size: 1rem;
 }
 
-input[type=username], input[type=password] {
+input[type=text], input[type=password] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -360,17 +360,11 @@ input[type=username], input[type=password] {
   margin: 0 auto;
 }
 
-.user-form label {
-  font-size: 1rem;
-  line-height: 1rem;
-  letter-spacing: -0.025em;
-  display: block;
-}
-
-.user-form input[type=username], .user-form input[type=password] {
+.user-form input[type=text], .user-form input[type=password] {
   width: 15rem;
   padding: 0.25rem;
   margin: 8px 0;
+  display: block;
   box-sizing: border-box;
 }
 

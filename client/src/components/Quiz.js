@@ -10,7 +10,7 @@ const contentStyle = {
   // background: "rgba(255,255,255,0)",
 };
 
-const Quiz = () => {
+const Quiz = (props) => {
   // celeb data
   const [data, setData] = useState([])
   // current celeb
@@ -113,7 +113,7 @@ const Quiz = () => {
               closeOnDocumentClick={true}
               trigger={<button className="button large">See Your Score</button>}
             >
-              {close => <QuizOver close={close} />}
+              {close => <QuizOver props={props} close={close} />}
             </Popup>
             <button onClick={refreshPage} className="button large">Play Again</button>
           </div>

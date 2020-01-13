@@ -12,7 +12,6 @@ import Attributions from './components/Attributions';
 // quiz components
 import QuizStart from './components/QuizStart';
 import Quiz from './components/Quiz';
-import QuizOver from './components/QuizOver';
 import Scoreboard from './components/Scoreboard';
 // account components
 import Register from './components/Register';
@@ -60,8 +59,7 @@ export const BASE_URL = `https://cdoa5-backend.herokuapp.com/`;
         <Switch>
           <Route exact path='/' component={QuizStart}/>
           <Route path='/Scoreboard' component={Scoreboard} />
-          <Route path='/Quiz' component={Quiz} />
-          <Route path='/QuizOver' render={routeProps => {return <QuizOver {...routeProps} setIsLoggedIn={setIsLoggedIn} />;}}/>
+          <Route path='/Quiz' render={routeProps => {return <Quiz {...routeProps} setIsLoggedIn={setIsLoggedIn} />;}} />
           <Route path='/Login' render={routeProps => {return <Login {...routeProps} setIsLoggedIn={setIsLoggedIn} />;}}/>
           <Route path='/Register' render={routeProps => {return <Register {...routeProps} setIsLoggedIn={setIsLoggedIn} />;}}/>
           <Route path='/RegisterUser' component={UserName} />
