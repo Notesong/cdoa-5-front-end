@@ -17,7 +17,7 @@ const Image = styled.div`
 
 const QuizStart = () => {
     // checks if user is logged in. Will use name below if they are
-    let isNameHere = window.localStorage.getItem("registerUser") || ""
+    let isNameHere = window.sessionStorage.getItem("registerUser") || ""
 
     return (
         <div className='Quiz_Start'>
@@ -25,7 +25,7 @@ const QuizStart = () => {
             <header>
                 <Image />
                 <h3>Guess which of these Celebs are Dead or Alive!</h3>
-                <h4>You have 30 seconds.</h4>
+                <h4>You have 15 seconds.</h4>
                 {isNameHere === "" ? null : <h3> Let's Begin, {isNameHere}!</h3>}
             </header>
             {/* button to start quiz */}

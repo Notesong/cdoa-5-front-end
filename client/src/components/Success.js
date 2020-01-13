@@ -2,7 +2,7 @@ import React from 'react';
 
 const Success = ({ isLoggedIn }) =>{
 
-    let isNameHere = localStorage.getItem("registerUser") || "";
+    let isNameHere = sessionStorage.getItem("registerUser") || "";
 
     return(
         <div className='success'>

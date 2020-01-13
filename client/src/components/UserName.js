@@ -29,7 +29,7 @@ const Login = ({ history, setIsLoggedIn, errors, touched }) => {
 }
 
 const axioscall = async (values, props) => {
-    const score = localStorage.getItem("GameScore");
+    const score = sessionStorage.getItem("GameScore");
     
     try {
         await Axios.post(`${BASE_URL}api/register`, {
@@ -40,14 +40,14 @@ const axioscall = async (values, props) => {
             username: values.username,
             password: values.password
         })
-        localStorage.setItem('id', res.data.id);
-        localStorage.setItem('token', res.data.token);
+        sessionStorage.setItem('id', res.data.id);
+        sessionStorage.setItem('token', res.data.token);
         await Axios.put(
             `${BASE_URL}api/auth/users/${res.data.id}`, 
             {score: score},
             {headers: {Authorization: `${res.data.token}`}}
         )
-        localStorage.setItem('registerUser', values.username)
+        sessionStorage.setItem('registerUser', values.username)
         props.setIsLoggedIn(true);
         props.history.push('/Success')
     } catch (error) {

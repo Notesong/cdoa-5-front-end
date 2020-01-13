@@ -42,9 +42,9 @@ const axioscall = async (values, props) => {
             password: values.password
         })
         // set items to local storage for later retrieval
-        localStorage.setItem('id', res.data.id);
-        localStorage.setItem('token', res.data.token);
-        localStorage.setItem('registerUser', values.username);
+        sessionStorage.setItem('id', res.data.id);
+        sessionStorage.setItem('token', res.data.token);
+        sessionStorage.setItem('registerUser', values.username);
         
         // go to success page if registration is successful
         props.history.push('/Success')
@@ -112,9 +112,9 @@ export default FormikRegister;
 //                 password: registerUser.password
 //             })
 //             // set items to local storage for later retrieval
-//             localStorage.setItem('id', res.data.id);
-//             localStorage.setItem('token', res.data.token);
-//             localStorage.setItem('registerUser', registerUser.username);
+//             sessionStorage.setItem('id', res.data.id);
+//             sessionStorage.setItem('token', res.data.token);
+//             sessionStorage.setItem('registerUser', registerUser.username);
 //             props.setIsLoggedIn(true);
 //             // go to success page if registration is successful
 //             props.history.push('/Success')

@@ -39,7 +39,7 @@ const Quiz = (props) => {
 
   // timer set for 30secs but we can decide on timer later
   useEffect(() => {
-    const timer = setTimeout(() => setTime(true), 5000)
+    const timer = setTimeout(() => setTime(true), 15000)
     return () => clearTimeout(timer)
   }, [])
 
@@ -83,8 +83,8 @@ const Quiz = (props) => {
     changeCeleb()
   }
 
-  window.localStorage.setItem('CorrectGuesses', JSON.stringify(score))
-  window.localStorage.setItem('TotalGuesses', JSON.stringify(userAnswer))
+  window.sessionStorage.setItem('CorrectGuesses', JSON.stringify(score))
+  window.sessionStorage.setItem('TotalGuesses', JSON.stringify(userAnswer))
 
   return (
   //  whole game (will need to set up data points i.e (death and alive from API)

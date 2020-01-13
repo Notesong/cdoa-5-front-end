@@ -4,8 +4,8 @@ import UserName from './UserName';
 
 const QuizOver = (props) =>{
     // get quiz results from local storage
-    const correctGuesses = localStorage.getItem('CorrectGuesses');
-    const guesses = localStorage.getItem("TotalGuesses");
+    const correctGuesses = sessionStorage.getItem('CorrectGuesses');
+    const guesses = sessionStorage.getItem("TotalGuesses");
 
     // calculate score 
     // less points given based on how many were wrong to how many guesses
@@ -16,8 +16,8 @@ const QuizOver = (props) =>{
         score = 0;
     }
 
-    let isNameHere = localStorage.getItem("registerUser") || "";
-    localStorage.setItem('GameScore', JSON.stringify(score));
+    let isNameHere = sessionStorage.getItem("registerUser") || "";
+    sessionStorage.setItem('GameScore', JSON.stringify(score));
 
     // create date to store with score
     let today = new Date();
@@ -28,10 +28,10 @@ const QuizOver = (props) =>{
     
     // Store game
     if (isNameHere) {
-        let oldGames = JSON.parse(localStorage.getItem(isNameHere)) || [];
+        let oldGames = JSON.parse(sessionStorage.getItem(isNameHere)) || [];
         let newGame = { score: score, date: today};
         oldGames.push(newGame);
-        localStorage.setItem( isNameHere, JSON.stringify(oldGames));
+        sessionStorage.setItem( isNameHere, JSON.stringify(oldGames));
     }
 
     return(

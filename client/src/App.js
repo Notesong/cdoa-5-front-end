@@ -62,7 +62,6 @@ export const BASE_URL = `https://cdoa5-backend.herokuapp.com/`;
           <Route path='/Quiz' render={routeProps => {return <Quiz {...routeProps} setIsLoggedIn={setIsLoggedIn} />;}} />
           <Route path='/Login' render={routeProps => {return <Login {...routeProps} setIsLoggedIn={setIsLoggedIn} />;}}/>
           <Route path='/Register' render={routeProps => {return <Register {...routeProps} setIsLoggedIn={setIsLoggedIn} />;}}/>
-          <Route path='/RegisterUser' component={UserName} />
           <Route path='/Success' render={routeProps => {return <Success {...routeProps} isLoggedIn={isLoggedIn} />;}}/>
           <Route path='/AboutUs' component={AboutUs} />
           <Route path='/Attributions' component={Attributions} />

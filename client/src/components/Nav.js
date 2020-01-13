@@ -5,9 +5,9 @@ const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
 
   // reset everything for logout
   function logout() {
-    localStorage.removeItem('id');
-    localStorage.removeItem('token');
-    localStorage.removeItem('registerUser');
+    sessionStorage.removeItem('id');
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('registerUser');
     setIsLoggedIn(false);
   }
 

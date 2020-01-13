@@ -3,8 +3,8 @@ import Button from './Button';
 
 const Scoreboard = () => {
   // retrieves name and games from storage
-  let isNameHere = window.localStorage.getItem('registerUser')
-  let games = JSON.parse(window.localStorage.getItem(isNameHere)) || []  
+  let isNameHere = window.sessionStorage.getItem('registerUser')
+  let games = JSON.parse(window.sessionStorage.getItem(isNameHere)) || []  
   
   if (isNameHere) { 
     return (

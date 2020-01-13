@@ -53,9 +53,9 @@ const FormikLogin = withFormik({
                 password: values.password
             })
             .then(res => {
-                localStorage.setItem('id', res.data.id);
-                localStorage.setItem('token', res.data.token);
-                localStorage.setItem('registerUser', values.username);
+                sessionStorage.setItem('id', res.data.id);
+                sessionStorage.setItem('token', res.data.token);
+                sessionStorage.setItem('registerUser', values.username);
                 props.setIsLoggedIn(true);
                 // go to success page if registration is successful
                 props.history.push('/Success');
