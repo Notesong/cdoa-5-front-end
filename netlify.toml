@@ -1,6 +1,6 @@
 [build]
   command = "yarn build"
-  publish="client/public"
+  publish="public"
   base = "client"
 [[redirects]]
   from = "/*"
