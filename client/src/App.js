@@ -16,7 +16,6 @@ import Scoreboard from './components/Scoreboard';
 // account components
 import Register from './components/Register';
 import Login from "./components/Login";
-import UserName from './components/UserName';
 import Success from './components/Success';
 
 // styles
